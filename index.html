@@ -82,17 +82,21 @@
       header: 'Learn Gulp',
       description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
       imageUrl: 'http://brunch.io/images/others/gulp.png'
-    }],
+    }]
+  };
 
-   footerData:{
+
+var FooterOptions ={
+   footerData: {
     copyright: '2017 © React test',
   gitLogo: 'dedenkof',
   gitEmail: 'dedenkof@ukr.net',
-   },
-  };
+   }
+   };
 
   var element = React.createElement(ThumbnailList, options);
-  var element2 = React.createElement(Footer, options);
-  React.render(element, document.querySelector('.container'));
-  React.render(element, document.querySelector('footer'));
+    React.render(element, document.querySelector('.container'));
+  var element2 = React.createElement(Footer, FooterOptions);
+
+  React.render(element2, document.querySelector('footer'));
 </script>
