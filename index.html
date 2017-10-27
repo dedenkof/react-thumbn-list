@@ -1,17 +1,135 @@
 <head>
+  <meta charset="utf-8">
   <script src="http://fb.me/react-0.13.0.js"></script>
   <script src="http://fb.me/JSXTransformer-0.13.0.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-  <meta charset="utf-8">
-</head>
+  <link rel="stylesheet" href="1.css">
+  <script src="https://use.fontawesome.com/5ab0b46eb0.js"></script>
+  </head>
 <body>
-  <header></header>
-  <div class="container">
-  </div>
-  <footer></footer>
+  <header><div class="container"></div></header>
+  <main><div class="container"><div class="row"></div></main>
+  <footer><div class="container"></div></footer>
 </body>
 
 <script type="text/jsx">
+
+var options = {
+
+
+	  headerData: [{
+	  menuTitle: 'Главная',
+	  menuPath: '/',
+	 },{
+	  menuTitle: 'О нас',
+	  menuPath: '/about'
+   },{
+   	 menuTitle: 'Услуги',
+	 menuPath: '/service',
+    },{
+     menuTitle: 'Портфолио',
+	 menuPath: '/portfolio',
+	},{
+	 menuTitle: 'Контакты',
+	 menuPath: '/contact',
+	 
+	 }],
+
+
+    thumbnailData:  [{
+      title: 'Show Courses',
+      number: 12,
+      header: 'Learn React',
+      description: 'React is a fantastic new front end library for rendering web pages. React is a fantastic new front end library for rendering web pages.',
+      imageUrl: 'https://raw.githubusercontent.com/wiki/facebook/react/react-logo-1000-transparent.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    },{
+      title: 'Show Courses',
+      number: 25,
+      header: 'Learn Gulp',
+      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
+      imageUrl: 'http://brunch.io/images/others/gulp.png'
+    }],
+	  footerData: [{
+	  copyright: '2017 © React test Dedenkof',
+	  gitLogo: 'dedenkof',
+	  email: 'dedenkof@gmail.com',
+
+   }]
+   
+  };
+
+
+
+ var Header = React.createClass({
+    render: function() {
+      return <nav className="navbar navbar-default">
+        <div className="container-fluid">
+          <div className="navbar-header">
+            
+            <a className="navbar-brand logo" href="#">Project name</a>
+          </div>
+          <div id="navbar" className="navbar-collapse collapse">
+            <ul className="nav navbar-nav">
+              <li><a href={this.props.menuPath}>{this.props.menuTitle}</a></li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    }
+  });
+
+  var HeaderOutput = React.createClass({
+    render: function() {
+      var headerItem = this.props.headerData.map(function(headerProps){
+        return <Header {...headerProps} />
+      });
+
+      return <div>
+        {headerItem}
+      </div>
+    }
+  });
+
+
+/* Main Content */
+
   var Badge = React.createClass({
     render: function() {
       return <button className="btn btn-primary" type="button">
@@ -22,7 +140,7 @@
 
   var Thumbnail = React.createClass({
     render: function() {
-      return <div className="col-sm-6 col-md-4">
+      return <div className="col-md-3">
         <div className="thumbnail">
           <img src={this.props.imageUrl} alt="..."></img>
           <div className="caption">
@@ -37,27 +155,7 @@
     }
   });
 
-
-
-  var Footer = React.createClass({
-    render: function() {
-      return
-      <div className="row">
-      <div className="col-md-12">
-        
-        <ul className="text-center">
-          <li>{this.props.gitLogo}</li>
-          <li>{this.props.gitEmail}</li>
-        </ul>
-
-        <div className="copyright">{this.props.copyright}</div>
-
-      </div>
-      </div>
-    }
-  });
-
-  var ThumbnailList = React.createClass({
+var ThumbnailList = React.createClass({
     render: function() {
       var list = this.props.thumbnailData.map(function(thumbnailProps){
         return <Thumbnail {...thumbnailProps} />
@@ -69,34 +167,48 @@
     }
   });
 
-  var options = {
-    thumbnailData:  [{
-      title: 'Show Courses',
-      number: 12,
-      header: 'Learn React',
-      description: 'React is a fantastic new front end library for rendering web pages. React is a fantastic new front end library for rendering web pages.',
-      imageUrl: 'https://raw.githubusercontent.com/wiki/facebook/react/react-logo-1000-transparent.png'
-    },{
-      title: 'Show Courses',
-      number: 25,
-      header: 'Learn Gulp',
-      description: 'Gulp will speed up your development workflow.  Gulp will speed up your development workflow.  Gulp will speed up your development workflow.',
-      imageUrl: 'http://brunch.io/images/others/gulp.png'
-    }]
-  };
 
 
-var FooterOptions ={
-   footerData: {
-    copyright: '2017 © React test',
-  gitLogo: 'dedenkof',
-  gitEmail: 'dedenkof@ukr.net',
-   }
-   };
 
-  var element = React.createElement(ThumbnailList, options);
-    React.render(element, document.querySelector('.container'));
-  var element2 = React.createElement(Footer, FooterOptions);
+/* Footer */
+  var Footer = React.createClass({
+    render: function() {
+      return <div className="row">
+      <div className="col-md-6">
+      	<div className="copyright">{this.props.copyright}</div>
+		</div>
+		<div className="col-md-6">
+        	<ul className="footer-info">
+          		<li><i className ="fa fa-github-alt" aria-hidden="true"></i> <a href="https://github.com/dedenkof">{this.props.gitLogo}</a></li>
+          		<li><i className ="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:dedenkof@gmail.com">{this.props.email}</a></li>
+        </ul>
+        </div>
+        </div>
+    }
+  });
 
-  React.render(element2, document.querySelector('footer'));
+  var FooterOutput = React.createClass({
+    render: function() {
+      var footerItem = this.props.footerData.map(function(footerProps){
+        return <Footer {...footerProps} />
+      });
+
+      return <div>
+        {footerItem}
+      </div>
+    }
+  });
+
+  
+
+  var headerLayout = React.createElement(HeaderOutput, options);
+  React.render(headerLayout, document.querySelector('header > .container'));
+
+
+  var mainLayout = React.createElement(ThumbnailList, options);
+  React.render(mainLayout, document.querySelector('main > .container > .row'));
+
+  var footerLayout = React.createElement(FooterOutput, options);
+  React.render(footerLayout, document.querySelector('footer > .container'));
+
 </script>
