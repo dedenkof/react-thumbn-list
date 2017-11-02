@@ -7,9 +7,26 @@
   <script src="https://use.fontawesome.com/5ab0b46eb0.js"></script>
   </head>
 <body>
-  <header><div class="container"></div></header>
-  <main><div class="container"><div class="row"></div></main>
-  <footer><div class="container"></div></footer>
+<header>
+  <div class="container">
+  	<nav class="navbar">
+  		<div class="container-fluid">
+  			<div class="col-md-4">
+  			<div class="navbar-header">
+  				<a class="logo" href="#"><img src="img/react_logo.svg" alt=""></a>
+  			</div>
+  			</div>
+  			<div class="col-md-8">
+  			<div class="navbar">
+  				<ul class="list-menu"></ul>
+  			</div>
+  			</div>
+  		</div>
+  	</nav>
+  </div>
+</header>
+<main><div class="container"><div class="row"></div></main>
+<footer><div class="container"></div></footer>
 </body>
 
 <script type="text/jsx">
@@ -98,21 +115,8 @@ var options = {
 
  var Header = React.createClass({
     render: function() {
-      return <nav className="navbar navbar-default">
-        <div className="container-fluid">
-          <div className="navbar-header">
-            
-            <a className="navbar-brand logo" href="#">Project name</a>
-          </div>
-          <div id="navbar" className="navbar-collapse collapse">
-            <ul className="nav navbar-nav">
-              <li><a href={this.props.menuPath}>{this.props.menuTitle}</a></li>
-
-            </ul>
-          </div>
-        </div>
-      </nav>
-    }
+      return <li><a href={this.props.menuPath}>{this.props.menuTitle}</a></li>
+	}
   });
 
   var HeaderOutput = React.createClass({
@@ -202,7 +206,7 @@ var ThumbnailList = React.createClass({
   
 
   var headerLayout = React.createElement(HeaderOutput, options);
-  React.render(headerLayout, document.querySelector('header > .container'));
+  React.render(headerLayout, document.querySelector('.list-menu'));
 
 
   var mainLayout = React.createElement(ThumbnailList, options);
